@@ -127,6 +127,9 @@ function Nav({ scrolled, time }: { scrolled: boolean; time: string }) {
 }
 
 function Particles() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
   const particles = Array.from({ length: 28 });
   return (
     <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">
